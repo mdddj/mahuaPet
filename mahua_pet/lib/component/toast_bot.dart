@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:mahua_pet/styles/app_style.dart';
 
 class BTToast {
 
   /// 点按位置弹窗
   static void showAttached(BuildContext context, List<String> rows, void Function(String, int) callback) {
-    final titles = rows ?? [];
-    
+
     // BotToast.showAttachedWidget(
     //   duration: null,
     //   targetContext: context,

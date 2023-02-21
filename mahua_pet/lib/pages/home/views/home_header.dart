@@ -30,21 +30,23 @@ class HomeHeader extends StatelessWidget {
           flexibleSpace: FlexibleSpaceBar(
             background: Container(
               color: TKColor.backColor(store.state.isNightModal),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Container(
-                    height: 250.px + SizeFit.statusHeight,
-                    child: Stack(
-                      children: <Widget>[
-                        initBackImage(store),
-                        initRightSelect(context, store),
-                        initAnimalInfo(context, store),
-                        initAnimalLifes(context, store)
-                      ],
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      height: 250.px + SizeFit.statusHeight,
+                      child: Stack(
+                        children: <Widget>[
+                          initBackImage(store),
+                          initRightSelect(context, store),
+                          initAnimalInfo(context, store),
+                          initAnimalLifes(context, store)
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

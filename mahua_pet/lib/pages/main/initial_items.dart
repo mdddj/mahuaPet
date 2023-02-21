@@ -37,6 +37,7 @@ List<BottomNavigationBarItem> itemList(Store store) {
       icon: Icon(Icons.insert_invitation),
     ),
     BottomNavigationBarItem(
+      label: "",
       // icon: Image.asset(TKImages.tabbar_add, fit: BoxFit.contain),
       icon: Icon(Icons.add_circle, size: 44, color: store.state.isNightModal ? TKColor.white : store.state.themeData.primaryColor),
     ),

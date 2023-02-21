@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -59,6 +59,13 @@ dependencies:
   device_info: ^2.0.3
   waterfall_flow: ^3.0.2
 
+
+
+dependency_overrides:
+  image_gallery_saver:
+    git:
+      url: https://github.com/hui-z/image_gallery_saver
+      ref: master
 
 dev_dependencies:
   flutter_test:

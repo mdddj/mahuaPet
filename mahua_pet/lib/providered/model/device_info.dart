@@ -30,7 +30,7 @@ class DeviceInfoModel {
     factory DeviceInfoModel.fromJson(Map<String, dynamic> json) => DeviceInfoModel(
         mobileType: json["mobileType"] ?? '',
         mobileName: json["mobileName"] ?? '',
-        mobileVersion: json["mobileVersion"] ?? '',
+        mobileVersion: '未知',
         modelType: json["modelType"] ?? '',
         localizedModel: json["localizedModel"] ?? '',
         mobileUid: json["mobileUID"] ?? '',

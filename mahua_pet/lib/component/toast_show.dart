@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:mahua_pet/styles/app_style.dart';
 
 class TKToast {
   static void showToast(String msg) {

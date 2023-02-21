@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:mahua_pet/caches/caches_index.dart';
 import 'package:mahua_pet/component/toast_show.dart';
 import 'package:mahua_pet/config/config_index.dart';
@@ -8,8 +7,6 @@ import 'redux_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
-
   SharedStorage.initStorage().then((value) {
     runApp(MyApp());
     TKToast.setToastStyle();
@@ -26,7 +23,6 @@ class MyApp extends StatelessWidget {
 
     SizeFit.initialize();
     TKDeviceInfo.initialezed();
-    
 
     return ReduxApp();
   }
