@@ -21,7 +21,7 @@ class SmallButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: RaisedButton(
+      child: MaterialButton(
         padding: padding,
         child: Text(title, style: TextStyle(fontSize: 13.px)),
         textColor: TKColor.color_4b4b4b,

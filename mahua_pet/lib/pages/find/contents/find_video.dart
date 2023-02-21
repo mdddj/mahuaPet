@@ -76,7 +76,7 @@ class _FindVideoListState extends State<FindVideoList> {
           enlargeCenterPage: true,
           onPageChanged: (index, reason) => onPageChanged(index)
         ),
-        itemBuilder: (ctx, index) {
+        itemBuilder: (ctx, index,_) {
           if (_videoArray.length <= index) {
             return Container();
           }

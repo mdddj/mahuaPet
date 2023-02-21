@@ -4,7 +4,7 @@ class HttpConfig {
   /// 请求配置参数
   static const bool isFormat = true;
   static const String baseURL = "https://gate.ieasydog.com/api/";
-  static const int timeout = 30000;
+  static const Duration timeout = Duration(milliseconds: 30000);
 
 
   /*

@@ -79,7 +79,7 @@ class _PetListPageState extends State<PetListPage> {
               borderRadius: BorderRadius.circular(4)
             ),
             child: Stack(
-              overflow: Overflow.visible,
+              clipBehavior: Clip.none,
               alignment: AlignmentDirectional.topCenter,
               children: <Widget>[
                 Positioned(

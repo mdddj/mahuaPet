@@ -1,6 +1,4 @@
-/**
- * 用于保存临时缓存的配置信息
- */
+/// 用于保存临时缓存的配置信息
 import 'dart:convert';
 import 'package:redux/redux.dart';
 import 'package:mahua_pet/utils/func_utils.dart';

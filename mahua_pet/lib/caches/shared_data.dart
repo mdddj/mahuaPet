@@ -1,4 +1,3 @@
-import 'package:mahua_pet/providered/model/model_index.dart';
 
 class SharedData {
   

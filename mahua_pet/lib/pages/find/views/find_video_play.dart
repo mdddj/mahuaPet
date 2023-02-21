@@ -102,7 +102,7 @@ class _FindVideoPlayState extends State<FindVideoPlay> {
           child: Stack(
             alignment: AlignmentDirectional.center,
             children: <Widget>[
-              _videoController.value.initialized ? videoItem : indicator,
+              _videoController.value.isInitialized ? videoItem : indicator,
               Positioned(
                 child: _isPlaying ? Container() : Center(
                   child: Image.asset(TKImages.image_path + 'video_play.png', width: 55.px, height: 55.px)

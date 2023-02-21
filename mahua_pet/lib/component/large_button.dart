@@ -21,7 +21,7 @@ class LargeButton extends StatelessWidget {
       child: Container(
         width: SizeFit.screenWidth - 30.px,
         height: 50.px,
-        child: RaisedButton(
+        child: MaterialButton(
           child: Text(title ?? '', style: TextStyle(fontSize: 16.px)),
           textColor: TKColor.color_4b4b4b,
           disabledTextColor: TKColor.color_6f6f6f,

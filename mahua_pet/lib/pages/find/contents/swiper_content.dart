@@ -61,16 +61,16 @@ class _SwiperContentState extends State<SwiperContent> with AutomaticKeepAliveCl
     }
     return SliverPadding(
       padding: EdgeInsets.symmetric(horizontal: 8.px),
-      sliver: SliverStaggeredGrid.countBuilder(
-        crossAxisCount: 2,
-        mainAxisSpacing: 8.px,
-        crossAxisSpacing: 8.px,
-        staggeredTileBuilder: (_) => StaggeredTile.fit(1),
-        itemBuilder: (context, index) {
-          return FindRecomItem(key: ValueKey(index), recomModel: _modelList[index]);
-        },
-        itemCount: _modelList.length,
-      ),
+      // sliver: SliverStaggeredGrid.countBuilder(
+      //   crossAxisCount: 2,
+      //   mainAxisSpacing: 8.px,
+      //   crossAxisSpacing: 8.px,
+      //   staggeredTileBuilder: (_) => StaggeredTile.fit(1),
+      //   itemBuilder: (context, index) {
+      //     return FindRecomItem(key: ValueKey(index), recomModel: _modelList[index]);
+      //   },
+      //   itemCount: _modelList.length,
+      // ),
     );
   }
 

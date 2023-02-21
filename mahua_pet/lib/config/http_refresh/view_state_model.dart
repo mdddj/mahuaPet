@@ -62,12 +62,12 @@ class ViewStateModel extends ChangeNotifier {
     ViewStateErrorType errorType = ViewStateErrorType.defaultError;
 
     if (e is DioError) {
-      if (e.type == DioErrorType.connectTimeout || 
+      if (e.type == DioErrorType.connectionTimeout ||
           e.type == DioErrorType.sendTimeout || 
           e.type == DioErrorType.receiveTimeout) {
         errorType = ViewStateErrorType.networkTimeOutError;
         message = e.error;
-      } else if (e.type == DioErrorType.response ||
+      } else if (e.type == DioErrorType.badResponse ||
           e.type == DioErrorType.cancel) {
         message = e.error;
       } else {

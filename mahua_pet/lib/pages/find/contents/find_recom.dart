@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -8,20 +7,19 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:mahua_pet/styles/app_style.dart';
 import 'package:mahua_pet/utils/utils_index.dart';
 import 'package:mahua_pet/component/component.dart';
+import 'package:waterfall_flow/waterfall_flow.dart';
 
 import '../view_model/view_model_index.dart';
 import '../views/find_recom_swiper.dart';
 import '../views/find_recom_item.dart';
-
-
 
 class FindRecomPage extends StatefulWidget {
   @override
   _FindRecomPageState createState() => _FindRecomPageState();
 }
 
-class _FindRecomPageState extends State<FindRecomPage> with AutomaticKeepAliveClientMixin {
-
+class _FindRecomPageState extends State<FindRecomPage>
+    with AutomaticKeepAliveClientMixin {
   FindRecommendProvider _recommendVM;
 
   @override
@@ -41,24 +39,23 @@ class _FindRecomPageState extends State<FindRecomPage> with AutomaticKeepAliveCl
           builder: (_, recomVM, child) {
             _recommendVM = recomVM;
             return SmartRefresher(
-              controller: recomVM.refreshController,
-              enablePullUp: FuncUtils.isLogin(),
-              onRefresh: () {
-                if (FuncUtils.isLogin()) {
-                  recomVM.refreshData();
-                  recomVM.showErrorMessage(context);
-                } else {
-                  recomVM.refreshController.refreshCompleted();
-                }
-              },
-              onLoading: recomVM.loadMoreData,
-              child: CustomScrollView(
-                slivers: <Widget>[
-                  renderTopicItems(),
-                  renderPullList(),
-                ],
-              )
-            );
+                controller: recomVM.refreshController,
+                enablePullUp: FuncUtils.isLogin(),
+                onRefresh: () {
+                  if (FuncUtils.isLogin()) {
+                    recomVM.refreshData();
+                    recomVM.showErrorMessage(context);
+                  } else {
+                    recomVM.refreshController.refreshCompleted();
+                  }
+                },
+                onLoading: recomVM.loadMoreData,
+                child: CustomScrollView(
+                  slivers: <Widget>[
+                    renderTopicItems(),
+                    renderPullList(),
+                  ],
+                ));
           },
         );
       },
@@ -82,18 +79,14 @@ class _FindRecomPageState extends State<FindRecomPage> with AutomaticKeepAliveCl
     }
     return SliverPadding(
       padding: EdgeInsets.symmetric(horizontal: 8.px),
-      sliver: SliverStaggeredGrid.countBuilder(
+      sliver: SliverWaterfallFlow.count(
         crossAxisCount: 2,
-        mainAxisSpacing: 8.px,
+        children: _recommendVM.list
+            .map((e) => FindRecomItem(key: ValueKey(e), recomModel: e))
+            .toList(),
         crossAxisSpacing: 8.px,
-        staggeredTileBuilder: (_) => StaggeredTile.fit(1),
-        itemBuilder: (context, index) {
-          return FindRecomItem(key: ValueKey(index), recomModel: _recommendVM.list[index]);
-        },
-        itemCount: _recommendVM.list.length,
+        mainAxisSpacing: 8.px,
       ),
     );
   }
-
 }
-

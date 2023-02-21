@@ -38,7 +38,7 @@ class AuthCodeButtonState extends State<AuthCodeButton> {
         child: SizedBox(
           width: 90.px,
           height: 30.px,
-          child: RaisedButton(
+          child: MaterialButton(
             padding: EdgeInsets.symmetric(horizontal: 2.px),
             child: Text(title, style: TextStyle(fontSize: 13.px)),
             textColor: TKColor.color_4b4b4b,

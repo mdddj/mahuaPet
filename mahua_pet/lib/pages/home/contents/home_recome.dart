@@ -7,6 +7,7 @@ import 'package:mahua_pet/styles/app_style.dart';
 import 'package:mahua_pet/utils/utils_index.dart';
 import 'package:mahua_pet/component/component.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:waterfall_flow/waterfall_flow.dart';
 
 import '../models/grass_model.dart';
 import '../request/home_request.dart';
@@ -52,17 +53,9 @@ class _HomeRecommendState extends State<HomeRecommend> with AutomaticKeepAliveCl
       enablePullDown: true,
       onRefresh: refreshData,
       onLoading: loadMoreData,
-      child: StaggeredGridView.countBuilder(
-        padding: EdgeInsets.all(8.px),
-        crossAxisCount: 2,
-        mainAxisSpacing: 8.px,
-        crossAxisSpacing: 8.px,
-        itemCount: modelList.length,
-        staggeredTileBuilder: (_) => StaggeredTile.fit(1),
-        itemBuilder: (context, index) {
-          return FindRecomItem(key: ValueKey(index), recomModel: modelList[index]);
-        },
-      ),
+      child: WaterfallFlow.count(crossAxisCount: 2,mainAxisSpacing: 8.px,crossAxisSpacing: 8.px,children: [
+        ...modelList.map((e) => FindRecomItem(key: ValueKey(e), recomModel: e)).toList()
+      ],),
     );
   }
 

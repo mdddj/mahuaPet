@@ -91,7 +91,6 @@ class _PhotoPreviewState extends State<PhotoPreview> {
         scrollPhysics: const BouncingScrollPhysics(),
         pageController: _pageController,
         itemCount: widget.images.length,
-        loadFailedChild: Image.asset(TKImages.image_path + 'find_none_image.png'),
         backgroundDecoration: BoxDecoration(color: Colors.black),
         gaplessPlayback: false,
       ),

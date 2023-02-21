@@ -76,7 +76,7 @@ class _CalendarPageState extends State<CalendarPage> {
           )
         ],
       ),
-      floatingActionButton: RaisedButton(
+      floatingActionButton: MaterialButton(
         color: Colors.transparent,
         disabledColor: Colors.transparent,
         elevation: 16,

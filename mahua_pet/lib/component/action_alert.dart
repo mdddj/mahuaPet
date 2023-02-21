@@ -110,7 +110,7 @@ class TKActionAlert {
               itemBuilder: (ctx, index) {
                 final backColor = colorArray.length > 0 ? colorArray[index] : (isNight ? TKColor.color_151b26 : TKColor.white);
                 final textColor = (colorArray.length > 0 || isNight) ? TKColor.white : TKColor.color_1a1a1a;
-                return RaisedButton(
+                return MaterialButton(
                   textColor: Colors.white,
                   color: backColor,
                   child: Text(titleArray[index], style: TextStyle(fontSize: 14.px, color: textColor)),
@@ -247,7 +247,7 @@ class _MaterialAlert extends StatelessWidget {
   List<Widget> renderActions(BuildContext context) {
     List<Widget> itemList = [];
 
-    Widget leftItem = FlatButton(
+    Widget leftItem = MaterialButton(
       child: Text(leftTitle ?? '取消', style: TextStyle(fontSize: 16.px, color: TKColor.color_999999)),
       onPressed: () {
         Navigator.of(context).pop();
@@ -259,7 +259,7 @@ class _MaterialAlert extends StatelessWidget {
     itemList.add(leftItem);
 
     if (rightTitle != null) {
-      Widget item = FlatButton(
+      Widget item = MaterialButton(
         child: Text(rightTitle, style: TextStyle(fontSize: 16.px, color: TKColor.main_color)),
         onPressed: () {
           Navigator.of(context).pop();

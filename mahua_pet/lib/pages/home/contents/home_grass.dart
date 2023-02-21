@@ -7,6 +7,7 @@ import 'package:mahua_pet/redux/redux_index.dart';
 import 'package:mahua_pet/styles/app_style.dart';
 import 'package:mahua_pet/component/component.dart';
 import 'package:mahua_pet/utils/utils_index.dart';
+import 'package:waterfall_flow/waterfall_flow.dart';
 
 import '../models/grass_model.dart';
 import '../views/home_grid_item.dart';
@@ -56,22 +57,30 @@ class _HomeGressContentState extends State<HomeGressContent> with AutomaticKeepA
       enablePullDown: true,
       onRefresh: refreshData,
       onLoading: loadMoreData,
-      child: StaggeredGridView.countBuilder(
-        padding: EdgeInsets.all(8.px),
-        crossAxisCount: 2,
-        mainAxisSpacing: 8.px,
-        crossAxisSpacing: 8.px,
-        itemCount: modelList.length,
-        staggeredTileBuilder: (_) => StaggeredTile.fit(1),
-        itemBuilder: (context, index) {
-          final model = modelList[index];
-          return HomeGridItem(key: ValueKey(index), model: model, actionCallBack: (grass) {
-            TKRoute.push(context, GrassDetail(trialId: model.trialReportId, callback: (grassModel) {
-              updateDatas(grassModel);
-            }));
-          });
-        },
-      ),
+      // child: StaggeredGridView.countBuilder(
+      //   padding: EdgeInsets.all(8.px),
+      //   crossAxisCount: 2,
+      //   mainAxisSpacing: 8.px,
+      //   crossAxisSpacing: 8.px,
+      //   itemCount: modelList.length,
+      //   staggeredTileBuilder: (_) => StaggeredTile.fit(1),
+      //   itemBuilder: (context, index) {
+      //     final model = modelList[index];
+      //     return HomeGridItem(key: ValueKey(index), model: model, actionCallBack: (grass) {
+      //       TKRoute.push(context, GrassDetail(trialId: model.trialReportId, callback: (grassModel) {
+      //         updateDatas(grassModel);
+      //       }));
+      //     });
+      //   },
+      // ),
+      child: SliverWaterfallFlow.count(crossAxisCount: 2,mainAxisSpacing: 8.px,crossAxisSpacing: 8.px,children: [
+        ...modelList.map((e) {
+              return HomeGridItem(key: ValueKey(e), model: e, actionCallBack: (grass) {
+                TKRoute.push(context, GrassDetail(trialId: e.trialReportId, callback: (grassModel) {
+                  updateDatas(grassModel);
+                }));});
+        }).toList()
+      ],),
     );
   }
 

@@ -74,7 +74,7 @@ class _FindVideoItemState extends State<FindVideoItem> {
   List<Widget> renderVideoItem() {
     List<Widget> itemList = [];
 
-    final isInitial = _videoController.value.initialized;
+    final isInitial = _videoController.value.isInitialized;
     if (isInitial) {
       Widget playerItem = Center(
         child: AspectRatio(
